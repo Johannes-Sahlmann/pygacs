@@ -1,8 +1,7 @@
 pygacs
 ======
 
-**Python toolkit to access and manipulate Gaia catalogue tables hosted
-  at ESA's Gaia Archive Core Systems (GACS)**
+**Python toolkit to manipulate Gaia catalogue tables hosted at ESA's Gaia Archive Core Systems (GACS)**
 
 pygacs provides python modules for the access and manipulation (e.g. crossmatch) of
 tables in GACS. It employs the TAP command line access tools described
