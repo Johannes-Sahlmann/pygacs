@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Produced with astropy.io.votable version 1.0.2
+     http://www.astropy.org/ -->
+<VOTABLE version="1.2" xmlns="http://www.ivoa.net/xml/VOTable/v1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ivoa.net/xml/VOTable/v1.2">
+ <RESOURCE type="results">
+  <TABLE ID="I_239_hip_main" name="I/239/hip_main">
+   <DESCRIPTION>
+    The Hipparcos Main Catalogue\vizContent{timeSerie}
+   </DESCRIPTION>
+   <FIELD ID="HIP" datatype="int" name="HIP" ucd="ID_MAIN" width="6">
+    <DESCRIPTION>
+     Identifier (HIP number) (H1)
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="RA_ICRS_" datatype="double" name="RA_ICRS_" precision="8" ucd="POS_EQ_RA" unit="deg" width="12">
+    <DESCRIPTION>
+     *? alpha, degrees (ICRS, Epoch=J1991.25) (H8)
+    </DESCRIPTION>
+    <VALUES null="nan"/>
+   </FIELD>
+   <FIELD ID="DE_ICRS_" datatype="double" name="DE_ICRS_" precision="8" ucd="POS_EQ_DEC" unit="deg" width="12">
+    <DESCRIPTION>
+     *? delta, degrees (ICRS, Epoch=J1991.25) (H9)
+    </DESCRIPTION>
+    <VALUES null="nan"/>
+   </FIELD>
+   <FIELD ID="Plx" datatype="float" name="Plx" precision="2" ucd="POS_PARLX_TRIG" unit="mas" width="7">
+    <DESCRIPTION>
+     ? Trigonometric parallax (H11)
+    </DESCRIPTION>
+    <VALUES null="nan"/>
+   </FIELD>
+   <FIELD ID="pmRA" datatype="double" name="pmRA" precision="2" ucd="POS_EQ_PMRA" unit="mas.yr-1" width="8">
+    <DESCRIPTION>
+     Proper motion mu_alpha.cos(delta), ICRS(H12) {\em(for J1991.25
+     epoch)}
+    </DESCRIPTION>
+    <VALUES null="nan"/>
+   </FIELD>
+   <FIELD ID="pmDE" datatype="double" name="pmDE" precision="2" ucd="POS_EQ_PMDEC" unit="mas.yr-1" width="8">
+    <DESCRIPTION>
+     ? Proper motion mu_delta, ICRS (H13) {\em(for J1991.25 epoch)}
+    </DESCRIPTION>
+    <VALUES null="nan"/>
+   </FIELD>
+   <FIELD ID="Vmag" datatype="float" name="Vmag" precision="2" ucd="PHOT_JHN_V" unit="mag" width="5">
+    <DESCRIPTION>
+     ? Magnitude in Johnson V (H5)
+    </DESCRIPTION>
+    <VALUES null="nan"/>
+   </FIELD>
+   <DATA>
+    <TABLEDATA>
+     <TR>
+      <TD>17225</TD>
+      <TD> 55.34564029</TD>
+      <TD> 23.48704606</TD>
+      <TD>   9.21</TD>
+      <TD>   22.49</TD>
+      <TD>  -44.32</TD>
+      <TD> 9.17</TD>
+     </TR>
+     <TR>
+      <TD>17401</TD>
+      <TD> 55.92300763</TD>
+      <TD> 23.64926000</TD>
+      <TD>   9.48</TD>
+      <TD>   20.36</TD>
+      <TD>  -45.10</TD>
+      <TD> 7.93</TD>
+     </TR>
+     <TR>
+      <TD>17403</TD>
+      <TD> 55.92992873</TD>
+      <TD> 25.08083909</TD>
+      <TD>  10.01</TD>
+      <TD>   21.79</TD>
+      <TD>  -53.43</TD>
+      <TD> 7.52</TD>
+     </TR>
+     <TR>
+      <TD>17489</TD>
+      <TD> 56.20084227</TD>
+      <TD> 24.28957712</TD>
+      <TD>   9.75</TD>
+      <TD>   20.73</TD>
+      <TD>  -44.00</TD>
+      <TD> 5.45</TD>
+     </TR>
+     <TR>
+      <TD>17497</TD>
+      <TD> 56.21342687</TD>
+      <TD> 23.26902878</TD>
+      <TD>   9.76</TD>
+      <TD>   22.71</TD>
+      <TD>  -43.67</TD>
+      <TD> 8.98</TD>
+     </TR>
+     <TR>
+      <TD>17499</TD>
+      <TD> 56.21884811</TD>
+      <TD> 24.11344840</TD>
+      <TD>   8.80</TD>
+      <TD>   21.55</TD>
+      <TD>  -44.92</TD>
+      <TD> 3.72</TD>
+     </TR>
+     <TR>
+      <TD>17527</TD>
+      <TD> 56.29052841</TD>
+      <TD> 24.83937337</TD>
+      <TD>   8.87</TD>
+      <TD>   19.03</TD>
+      <TD>  -46.64</TD>
+      <TD> 5.66</TD>
+     </TR>
+     <TR>
+      <TD>17531</TD>
+      <TD> 56.30200876</TD>
+      <TD> 24.46737879</TD>
+      <TD>   8.75</TD>
+      <TD>   19.35</TD>
+      <TD>  -41.63</TD>
+      <TD> 4.30</TD>
+     </TR>
+     <TR>
+      <TD>17572</TD>
+      <TD> 56.45334190</TD>
+      <TD> 23.14725691</TD>
+      <TD>   9.68</TD>
+      <TD>   21.06</TD>
+      <TD>  -44.49</TD>
+      <TD> 6.85</TD>
+     </TR>
+     <TR>
+      <TD>17573</TD>
+      <TD> 56.45663804</TD>
+      <TD> 24.36785796</TD>
+      <TD>   9.06</TD>
+      <TD>   21.09</TD>
+      <TD>  -45.03</TD>
+      <TD> 3.87</TD>
+     </TR>
+     <TR>
+      <TD>17579</TD>
+      <TD> 56.47693278</TD>
+      <TD> 24.55462128</TD>
+      <TD>   8.43</TD>
+      <TD>   19.44</TD>
+      <TD>  -45.36</TD>
+      <TD> 5.76</TD>
+     </TR>
+     <TR>
+      <TD>17583</TD>
+      <TD> 56.49636093</TD>
+      <TD> 25.39870238</TD>
+      <TD>   8.50</TD>
+      <TD>   18.88</TD>
+      <TD>  -46.40</TD>
+      <TD> 8.04</TD>
+     </TR>
+     <TR>
+      <TD>17588</TD>
+      <TD> 56.51203181</TD>
+      <TD> 24.52800590</TD>
+      <TD>   9.21</TD>
+      <TD>   19.83</TD>
+      <TD>  -44.38</TD>
+      <TD> 6.43</TD>
+     </TR>
+     <TR>
+      <TD>17608</TD>
+      <TD> 56.58150135</TD>
+      <TD> 23.94846207</TD>
+      <TD>   9.08</TD>
+      <TD>   21.17</TD>
+      <TD>  -42.67</TD>
+      <TD> 4.14</TD>
+     </TR>
+     <TR>
+      <TD>17664</TD>
+      <TD> 56.74743102</TD>
+      <TD> 24.52023417</TD>
+      <TD>   6.66</TD>
+      <TD>   21.47</TD>
+      <TD>  -45.43</TD>
+      <TD> 6.83</TD>
+     </TR>
+     <TR>
+      <TD>17684</TD>
+      <TD> 56.82151746</TD>
+      <TD> 23.72681291</TD>
+      <TD>  16.10</TD>
+      <TD>  -34.04</TD>
+      <TD>  -25.39</TD>
+      <TD> 6.98</TD>
+     </TR>
+     <TR>
+      <TD>17692</TD>
+      <TD> 56.83731884</TD>
+      <TD> 23.80345386</TD>
+      <TD>   8.35</TD>
+      <TD>   19.78</TD>
+      <TD>  -43.97</TD>
+      <TD> 6.99</TD>
+     </TR>
+     <TR>
+      <TD>17694</TD>
+      <TD> 56.84535261</TD>
+      <TD> 22.92223144</TD>
+      <TD>   9.87</TD>
+      <TD>   19.74</TD>
+      <TD>  -45.20</TD>
+      <TD> 8.17</TD>
+     </TR>
+     <TR>
+      <TD>17702</TD>
+      <TD> 56.87110065</TD>
+      <TD> 24.10524193</TD>
+      <TD>   8.87</TD>
+      <TD>   19.35</TD>
+      <TD>  -43.11</TD>
+      <TD> 2.85</TD>
+     </TR>
+     <TR>
+      <TD>17704</TD>
+      <TD> 56.87267431</TD>
+      <TD> 24.28845287</TD>
+      <TD>   9.05</TD>
+      <TD>   17.84</TD>
+      <TD>  -44.94</TD>
+      <TD> 6.83</TD>
+     </TR>
+     <TR>
+      <TD>17729</TD>
+      <TD> 56.94509494</TD>
+      <TD> 25.38580834</TD>
+      <TD>   7.61</TD>
+      <TD>   19.34</TD>
+      <TD>  -46.91</TD>
+      <TD> 8.32</TD>
+     </TR>
+     <TR>
+      <TD>17759</TD>
+      <TD> 57.02732709</TD>
+      <TD> 24.98848495</TD>
+      <TD>   4.42</TD>
+      <TD>  -27.81</TD>
+      <TD>  -28.15</TD>
+      <TD> 6.44</TD>
+     </TR>
+     <TR>
+      <TD>17776</TD>
+      <TD> 57.08668426</TD>
+      <TD> 23.42136355</TD>
+      <TD>   9.64</TD>
+      <TD>   19.14</TD>
+      <TD>  -46.80</TD>
+      <TD> 5.44</TD>
+     </TR>
+     <TR>
+      <TD>17791</TD>
+      <TD> 57.12534946</TD>
+      <TD> 24.34562875</TD>
+      <TD>   6.90</TD>
+      <TD>   17.70</TD>
+      <TD>  -43.20</TD>
+      <TD> 6.96</TD>
+     </TR>
+     <TR>
+      <TD>17828</TD>
+      <TD> 57.22794154</TD>
+      <TD> 22.79922132</TD>
+      <TD>   5.27</TD>
+      <TD>    6.48</TD>
+      <TD>   -5.79</TD>
+      <TD> 8.12</TD>
+     </TR>
+     <TR>
+      <TD>17832</TD>
+      <TD> 57.23712973</TD>
+      <TD> 23.85727243</TD>
+      <TD>  13.44</TD>
+      <TD>   46.92</TD>
+      <TD>  -56.45</TD>
+      <TD> 6.47</TD>
+     </TR>
+     <TR>
+      <TD>17847</TD>
+      <TD> 57.29054669</TD>
+      <TD> 24.05352412</TD>
+      <TD>   8.57</TD>
+      <TD>   17.77</TD>
+      <TD>  -44.70</TD>
+      <TD> 3.62</TD>
+     </TR>
+     <TR>
+      <TD>17851</TD>
+      <TD> 57.29668368</TD>
+      <TD> 24.13682565</TD>
+      <TD>   8.42</TD>
+      <TD>   18.71</TD>
+      <TD>  -46.74</TD>
+      <TD> 5.05</TD>
+     </TR>
+     <TR>
+      <TD>17862</TD>
+      <TD> 57.34057511</TD>
+      <TD> 24.38106408</TD>
+      <TD>   8.02</TD>
+      <TD>   18.34</TD>
+      <TD>  -44.53</TD>
+      <TD> 6.62</TD>
+     </TR>
+     <TR>
+      <TD>17900</TD>
+      <TD> 57.43133245</TD>
+      <TD> 23.71196331</TD>
+      <TD>   8.58</TD>
+      <TD>   16.50</TD>
+      <TD>  -44.53</TD>
+      <TD> 6.17</TD>
+     </TR>
+     <TR>
+      <TD>17923</TD>
+      <TD> 57.49184638</TD>
+      <TD> 23.84880339</TD>
+      <TD>   6.30</TD>
+      <TD>   18.74</TD>
+      <TD>  -44.35</TD>
+      <TD> 6.73</TD>
+     </TR>
+     <TR>
+      <TD>17999</TD>
+      <TD> 57.71840155</TD>
+      <TD> 23.96158078</TD>
+      <TD>   9.83</TD>
+      <TD>   16.80</TD>
+      <TD>  -45.76</TD>
+      <TD> 6.95</TD>
+     </TR>
+     <TR>
+      <TD>18018</TD>
+      <TD> 57.76257314</TD>
+      <TD> 23.90376782</TD>
+      <TD>  24.72</TD>
+      <TD>  150.93</TD>
+      <TD>  -46.61</TD>
+      <TD>10.17</TD>
+     </TR>
+     <TR>
+      <TD>18046</TD>
+      <TD> 57.85541671</TD>
+      <TD> 25.16295722</TD>
+      <TD>   4.76</TD>
+      <TD>   -8.97</TD>
+      <TD>  -11.50</TD>
+      <TD> 6.79</TD>
+     </TR>
+     <TR>
+      <TD>18050</TD>
+      <TD> 57.86334041</TD>
+      <TD> 24.51876093</TD>
+      <TD>   7.56</TD>
+      <TD>   20.19</TD>
+      <TD>  -45.36</TD>
+      <TD> 8.86</TD>
+     </TR>
+     <TR>
+      <TD>18154</TD>
+      <TD> 58.22277909</TD>
+      <TD> 24.71584089</TD>
+      <TD>   8.57</TD>
+      <TD>   15.43</TD>
+      <TD>  -45.83</TD>
+      <TD> 9.44</TD>
+     </TR>
+    </TABLEDATA>
+   </DATA>
+  </TABLE>
+ </RESOURCE>
+</VOTABLE>
