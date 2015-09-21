@@ -1,3 +1,4 @@
+#!python
 """
 This script provides a basic example of how to use pygacs for authenticated access to GACS.
 It will read an example catalogue (starlist.vot), upload it to the private area of GACS, and crossmatch it with the IGSL catalogue.
@@ -12,7 +13,6 @@ This separate configuration file is required to avoid uploading user credentials
 
 
 """
-
 
 
 import sys,os
