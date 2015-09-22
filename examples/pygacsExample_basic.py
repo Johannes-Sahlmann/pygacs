@@ -66,7 +66,7 @@ if showPlots==1:
     pl.axis('equal')
     pl.tight_layout()
     pl.title('Input catalogue')
-    pl.show()
+    pl.show(block=False)
     
 ############################################################    
 # Crossmatch with Authenticated access
@@ -155,9 +155,6 @@ if showPlots==1:
     pl.tight_layout()
     pl.title('GACS catalogue (%s)' % gacsTableForXmatch)
     pl.show()
-    
-    
-    
     
     
 sys.exit(0)
