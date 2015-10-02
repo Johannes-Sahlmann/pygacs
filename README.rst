@@ -40,16 +40,17 @@ Optional (for plotting in the example script):
 How to run the example script
 -----------
 
-Get the source files, e.g. 
-|> git clone https://github.com/johannes-sahlmann/pygacs
-|
-|install pygacs
-|> cd pygacs
+Get the source files, e.g.: 
+
+> git clone https://github.com/johannes-sahlmann/pygacs
+
+Install pygacs:
+
+> cd pygacs
 
 > python setup.py install --user
 
-
-To run the example script
+To run the example script, do:
 
 > cd examples/
 
