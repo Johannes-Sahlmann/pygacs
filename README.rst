@@ -40,8 +40,7 @@ Optional (for plotting in the example script):
 How to run the example script
 -----------
 
-Get the source files, e.g.
-
+Get the source files, e.g. |br|
 > git clone https://github.com/johannes-sahlmann/pygacs
 
 install pygacs
@@ -60,7 +59,7 @@ To run the example script
 > ./pygacsExample.py yourGacsUserName yourGacsPassword
 
 
-You may also use pip:
+You may also use pip for installation:
 
 > pip install pygacs
 
