@@ -44,25 +44,25 @@ Get the source files, e.g.
 
 > git clone https://github.com/johannes-sahlmann/pygacs
 
-> cd pygacs/examples/
+install pygacs
+
+> cd pygacs
+
+> python setup.py install --user
+
+
+To run the example script
+
+> cd examples/
 
 > ./pygacsExample.py --help
 
-should return 
-usage: pygacsExample.py [-h] [--dataDir DATADIR] [--saveFigure SAVEFIGURE]
-                        [-t TABLENAME] [-gt GACSTABLEFORXMATCH]
-                        [-xt XMATCHTABLENAME]
-                        username password
+> ./pygacsExample.py yourGacsUserName yourGacsPassword
 
-This script provides a basic example of how to use pygacs for authenticated
-access to GACS. It will read an example catalogue (starlist.vot), upload it to
-the private area of GACS, and crossmatch it with the IGSL catalogue. The
-resulting table is downloaded.
 
-positional arguments:
-  username              GACS username
-  password              GACS password
+You may also use pip:
 
+> pip install pygacs
 
 
 
