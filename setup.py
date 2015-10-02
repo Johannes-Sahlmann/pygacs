@@ -1,9 +1,14 @@
+#!/usr/bin/env python
+
 import os
 import sys
 import re
 
+
 from distribute_setup import use_setuptools
 use_setuptools()
+
+from setuptools import find_packages
 
 try:
   from setuptools import setup
@@ -30,17 +35,13 @@ setup(
     author_email="Johannes.Sahlmann@esa.int",
     url="https://github.com/Johannes-Sahlmann/pygacs",
     license="LGPLv3+",
-    long_description="\n"+open("README.rst").read() + "\n\n"
-    + "Changelog\n"
-    + "---------\n\n"
-    + open("HISTORY.rst").read(),
-    packages=['pygacs', 'pygacs.authen'],
+    long_description="\n"+open("README.rst").read() + "\n\n"    + "Changelog\n"    + "---------\n\n"    + open("HISTORY.rst").read(),
+    packages = find_packages();
+    # packages=['pygacs', 'pygacs.authen'],
+    scripts=['pygacsExample.py']  # this will be installed to a bin/ directory
     package_data={'': ['LICENSE', 'AUTHORS.rst', 'HISTORY.rst', 'INSTALL', 'MANIFEST.in'],'pygacs': ['examples/*']},
     include_package_data=True,
-    install_requires=[
-      "numpy",
-      "scipy"
-      ],
+    install_requires=["numpy","astropy","xmltodict"],
     classifiers=[
       "Development Status :: 2 - Pre-Alpha",
       "Intended Audience :: Developers",

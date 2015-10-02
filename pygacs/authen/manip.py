@@ -25,7 +25,7 @@ import xmltodict
 import numpy as np
 import pdb
 
-
+__version__ = '0.1'
 
 
 def authenticatedGacsCommand(myUsername,myPsswd,commandString):

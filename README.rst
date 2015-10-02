@@ -10,8 +10,7 @@ in the 'Help' section of the GACS web pages (`<https://geadev.esac.esa.int/gacs-
 So far, only synchronous and authenticated access has been
 implemented. To fully use pygacs, in particular to upload a table for
 crossmatch operations, you will need to be a registered user of GACS
-and save your access credentials in a simple text file named
-pygacs.config (an example file is provided).
+and call the example script with your access credentials.
 
 
 
@@ -36,6 +35,19 @@ Optional (for plotting in the example script):
 
 * `matplotlib <http://matplotlib.org/>`_
 * `pylab <http://matplotlib.org/pylab/>`_
+
+
+How to run the example script
+-----------
+
+Get the source files, e.g.
+> git clone https://github.com/johannes-sahlmann/pygacs
+> cd pygacs/examples/
+> 
+
+
+
+
 
 Attribution
 -----------
