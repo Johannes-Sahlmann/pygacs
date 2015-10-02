@@ -38,7 +38,7 @@ setup(
     long_description="\n"+open("README.rst").read() + "\n\n"    + "Changelog\n"    + "---------\n\n"    + open("HISTORY.rst").read(),
     packages = find_packages(),
     # packages=['pygacs', 'pygacs.authen'],
-    scripts=['pygacsExample.py'],  # this will be installed to a bin/ directory
+    scripts=['examples/pygacsExample.py'],  # this will be installed to a bin/ directory
     package_data={'': ['LICENSE', 'AUTHORS.rst', 'HISTORY.rst', 'INSTALL', 'MANIFEST.in'],'pygacs': ['examples/*']},
     include_package_data=True,
     install_requires=["numpy","astropy","xmltodict"],
