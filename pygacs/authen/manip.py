@@ -47,9 +47,9 @@ def authenticatedGacsCommand(myUsername,myPsswd,commandString):
         string to be sent to GACS
     
     """    
-    str_login = "curl -k -c cookies.txt -X POST -d username=%s -d password=%s -L \"%stap-dev/login\" " % (myUsername,myPsswd,gacsurl)
+    str_login = "curl -k -c cookies.txt -X POST -d username=%s -d password=%s -L \"%stap-server/login\" " % (myUsername,myPsswd,gacsurl)
     print str_login
-    str_logout = "curl -k -b cookies.txt -X POST -d -L \"%stap-dev/logout\" " % (gacsurl)   
+    str_logout = "curl -k -b cookies.txt -X POST -d -L \"%stap-server/logout\" " % (gacsurl)   
 
     os.system(str_login)
     os.system(commandString)
@@ -66,7 +66,7 @@ def str_progress(jobid):
 
     """
     
-    return "curl -k -b cookies.txt \"%stap-dev/tap/async/%s\" "  % (gacsurl,jobid)
+    return "curl -k -b cookies.txt \"%stap-server/tap/async/%s\" "  % (gacsurl,jobid)
           
 def str_retrieve(jobid,outFile):
     """
@@ -80,7 +80,7 @@ def str_retrieve(jobid,outFile):
         filename containing result
 
     """
-    return "curl -k -b cookies.txt \"%stap-dev/tap/async/%s/results/result\" > %s" % (gacsurl,jobid,outFile)
+    return "curl -k -b cookies.txt \"%stap-server/tap/async/%s/results/result\" > %s" % (gacsurl,jobid,outFile)
     
 def authenticatedQuery(myUsername,myPsswd,queryString,outputFileName="out.vot", retrieve=False):        
     """
@@ -101,13 +101,13 @@ def authenticatedQuery(myUsername,myPsswd,queryString,outputFileName="out.vot", 
     
     """
         
-    str_login = "curl -k -c cookies.txt -X POST -d username=%s -d password=%s -L \"%stap-dev/login\" " % (myUsername,myPsswd,gacsurl)                 
-    str_query = "curl -k -b cookies.txt -i -X POST --data \"PHASE=run&LANG=ADQL&REQUEST=doQuery&QUERY=" + queryString + "\"  \"%stap-dev/tap/async\" " % (gacsurl)						
-    str_logout = "curl -k -b cookies.txt -X POST -d -L \"%stap-dev/logout\" " % (gacsurl)   
+    str_login = "curl -k -c cookies.txt -X POST -d username=%s -d password=%s -L \"%stap-server/login\" " % (myUsername,myPsswd,gacsurl)                 
+    str_query = "curl -k -b cookies.txt -i -X POST --data \"PHASE=run&LANG=ADQL&REQUEST=doQuery&QUERY=" + queryString + "\"  \"%stap-server/tap/async\" " % (gacsurl)						
+    str_logout = "curl -k -b cookies.txt -X POST -d -L \"%stap-server/logout\" " % (gacsurl)   
     
     os.system(str_login)
     resp = subprocess.check_output(str_query, shell=True)    
-    jobid = resp.split('tap-dev/tap/async/')[1].split('\r')[0]
+    jobid = resp.split('tap-server/tap/async/')[1].split('\r')[0]
     
     # check for progress    
     while True:
@@ -138,7 +138,7 @@ def str_deleteTable(tableName):
         name of table to delete
 
     """
-    return "curl -k -b cookies.txt -X POST -F TABLE_NAME=%s -F DELETE=TRUE -F FORCE_REMOVAL=TRUE \"%stap-dev/Upload\"" % (tableName,gacsurl)
+    return "curl -k -b cookies.txt -X POST -F TABLE_NAME=%s -F DELETE=TRUE -F FORCE_REMOVAL=TRUE \"%stap-server/Upload\"" % (tableName,gacsurl)
 
 def str_uploadTable(tableFile,tableName):
     """
@@ -152,7 +152,7 @@ def str_uploadTable(tableFile,tableName):
         name of table to upload
 
     """
-    return  "curl -k -b cookies.txt -X POST -F FILE=@%s -F TABLE_NAME=%s \"%stap-dev/Upload\"" % (tableFile,tableName,gacsurl)
+    return  "curl -k -b cookies.txt -X POST -F FILE=@%s -F TABLE_NAME=%s \"%stap-server/Upload\"" % (tableFile,tableName,gacsurl)
 
 def str_setTableFlags(tableName, myUsername,  ra_column_name, dec_column_name ):
     """
@@ -170,7 +170,7 @@ def str_setTableFlags(tableName, myUsername,  ra_column_name, dec_column_name ):
         name of Dec column in the table
     
     """
-    return "curl -k -b cookies.txt -X POST \"%stap-dev/TableTool?ACTION=radec&TABLE_NAME=user_%s.%s&RA=%s&DEC=%s\"" % ( gacsurl, myUsername, tableName, ra_column_name,dec_column_name)
+    return "curl -k -b cookies.txt -X POST \"%stap-server/TableTool?ACTION=radec&TABLE_NAME=user_%s.%s&RA=%s&DEC=%s\"" % ( gacsurl, myUsername, tableName, ra_column_name,dec_column_name)
             
     
                 
@@ -202,7 +202,7 @@ class GacsTableProperties:
         self.myPsswd = myPsswd;
         self.xmlFileName = xmlFileName;
 
-        comstr = "curl -k -b cookies.txt -X POST -L \"%stap-dev/tap/tables\" > %s" % (gacsurl,xmlFileName)
+        comstr = "curl -k -b cookies.txt -X POST -L \"%stap-server/tap/tables\" > %s" % (gacsurl,xmlFileName)
         authenticatedGacsCommand(myUsername,myPsswd, comstr )
         with open(xmlFileName) as fd:
             d = xmltodict.parse(fd.read())
