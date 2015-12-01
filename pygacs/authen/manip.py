@@ -16,6 +16,7 @@ References
 
 Compiled on the basis of the 'Help' section of the GACS web pages,
 see https://geadev.esac.esa.int/gacs-dev/index.html
+(located at http://gaia.esac.esa.int/archive/ as of 1 December 2015)
 
 
 """
@@ -26,6 +27,9 @@ import numpy as np
 import pdb
 
 __version__ = '0.1'
+
+gacsurl = 'http://gaia.esac.esa.int/'
+# gacsurl = 'https://geadev.esac.esa.int/'
 
 
 def authenticatedGacsCommand(myUsername,myPsswd,commandString):
@@ -42,9 +46,9 @@ def authenticatedGacsCommand(myUsername,myPsswd,commandString):
         string to be sent to GACS
     
     """    
-    
-    str_login = "curl -k -c cookies.txt -X POST -d username=%s -d password=%s -L \"https://geadev.esac.esa.int/tap-dev/login\" " % (myUsername,myPsswd)
-    str_logout = "curl -k -b cookies.txt -X POST -d -L \"https://geadev.esac.esa.int/tap-dev/logout\" "    
+    str_login = "curl -k -c cookies.txt -X POST -d username=%s -d password=%s -L \"%stap-dev/login\" " % (myUsername,myPsswd,gacsurl)
+    print str_login
+    str_logout = "curl -k -b cookies.txt -X POST -d -L \"%stap-dev/logout\" " % (gacsurl)   
 
     os.system(str_login)
     os.system(commandString)
@@ -61,7 +65,7 @@ def str_progress(jobid):
 
     """
     
-    return "curl -k -b cookies.txt \"https://geadev.esac.esa.int/tap-dev/tap/async/%s\" "  % (jobid)
+    return "curl -k -b cookies.txt \"%stap-dev/tap/async/%s\" "  % (gacsurl,jobid)
           
 def str_retrieve(jobid,outFile):
     """
@@ -75,7 +79,7 @@ def str_retrieve(jobid,outFile):
         filename containing result
 
     """
-    return "curl -k -b cookies.txt \"https://geadev.esac.esa.int/tap-dev/tap/async/%s/results/result\" > %s" % (jobid,outFile)
+    return "curl -k -b cookies.txt \"%stap-dev/tap/async/%s/results/result\" > %s" % (gacsurl,jobid,outFile)
     
 def authenticatedQuery(myUsername,myPsswd,queryString,outputFileName="out.vot", retrieve=False):        
     """
@@ -96,9 +100,9 @@ def authenticatedQuery(myUsername,myPsswd,queryString,outputFileName="out.vot", 
     
     """
         
-    str_login = "curl -k -c cookies.txt -X POST -d username=%s -d password=%s -L \"https://geadev.esac.esa.int/tap-dev/login\" " % (myUsername,myPsswd)                 
-    str_query = "curl -k -b cookies.txt -i -X POST --data \"PHASE=run&LANG=ADQL&REQUEST=doQuery&QUERY=" + queryString + "\"  \"https://geadev.esac.esa.int/tap-dev/tap/async\" " 						
-    str_logout = "curl -k -b cookies.txt -X POST -d -L \"https://geadev.esac.esa.int/tap-dev/logout\" "    
+    str_login = "curl -k -c cookies.txt -X POST -d username=%s -d password=%s -L \"%stap-dev/login\" " % (myUsername,myPsswd,gacsurl)                 
+    str_query = "curl -k -b cookies.txt -i -X POST --data \"PHASE=run&LANG=ADQL&REQUEST=doQuery&QUERY=" + queryString + "\"  \"%stap-dev/tap/async\" " % (gacsurl)						
+    str_logout = "curl -k -b cookies.txt -X POST -d -L \"%stap-dev/logout\" " % (gacsurl)   
     
     os.system(str_login)
     resp = subprocess.check_output(str_query, shell=True)    
@@ -133,7 +137,7 @@ def str_deleteTable(tableName):
         name of table to delete
 
     """
-    return "curl -k -b cookies.txt -X POST -F TABLE_NAME=%s -F DELETE=TRUE -F FORCE_REMOVAL=TRUE \"https://geadev.esac.esa.int/tap-dev/Upload\"" % (tableName)
+    return "curl -k -b cookies.txt -X POST -F TABLE_NAME=%s -F DELETE=TRUE -F FORCE_REMOVAL=TRUE \"%stap-dev/Upload\"" % (tableName,gacsurl)
 
 def str_uploadTable(tableFile,tableName):
     """
@@ -147,7 +151,7 @@ def str_uploadTable(tableFile,tableName):
         name of table to upload
 
     """
-    return  "curl -k -b cookies.txt -X POST -F FILE=@%s -F TABLE_NAME=%s \"https://geadev.esac.esa.int/tap-dev/Upload\"" % (tableFile,tableName)
+    return  "curl -k -b cookies.txt -X POST -F FILE=@%s -F TABLE_NAME=%s \"%stap-dev/Upload\"" % (tableFile,tableName,gacsurl)
 
 def str_setTableFlags(tableName, myUsername,  ra_column_name, dec_column_name ):
     """
@@ -165,7 +169,7 @@ def str_setTableFlags(tableName, myUsername,  ra_column_name, dec_column_name ):
         name of Dec column in the table
     
     """
-    return "curl -k -b cookies.txt -X POST \"https://geadev.esac.esa.int/tap-dev/TableTool?ACTION=radec&TABLE_NAME=user_%s.%s&RA=%s&DEC=%s\"" % ( myUsername, tableName, ra_column_name,dec_column_name)
+    return "curl -k -b cookies.txt -X POST \"%stap-dev/TableTool?ACTION=radec&TABLE_NAME=user_%s.%s&RA=%s&DEC=%s\"" % ( gacsurl, myUsername, tableName, ra_column_name,dec_column_name)
             
     
                 
@@ -197,7 +201,7 @@ class GacsTableProperties:
         self.myPsswd = myPsswd;
         self.xmlFileName = xmlFileName;
 
-        comstr = "curl -k -b cookies.txt -X POST -L \"https://geadev.esac.esa.int/tap-dev/tap/tables\" > %s" % xmlFileName
+        comstr = "curl -k -b cookies.txt -X POST -L \"%stap-dev/tap/tables\" > %s" % (gacsurl,xmlFileName)
         authenticatedGacsCommand(myUsername,myPsswd, comstr )
         with open(xmlFileName) as fd:
             d = xmltodict.parse(fd.read())
