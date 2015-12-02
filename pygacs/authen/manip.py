@@ -26,7 +26,7 @@ import xmltodict
 import numpy as np
 import pdb
 
-__version__ = '0.1'
+__version__ = '0.2'
 
 gacsurl = 'http://gaia.esac.esa.int/'
 # gacsurl = 'https://geadev.esac.esa.int/'
@@ -48,7 +48,7 @@ def authenticatedGacsCommand(myUsername,myPsswd,commandString):
     
     """    
     str_login = "curl -k -c cookies.txt -X POST -d username=%s -d password=%s -L \"%stap-server/login\" " % (myUsername,myPsswd,gacsurl)
-    print str_login
+    # print str_login
     str_logout = "curl -k -b cookies.txt -X POST -d -L \"%stap-server/logout\" " % (gacsurl)   
 
     os.system(str_login)
