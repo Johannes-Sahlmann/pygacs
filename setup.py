@@ -33,7 +33,7 @@ except ImportError:
 # m = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "pygacs", "__init__.py")).read()
 # pygaiaVersion = vre.findall(m)[0]
 
-pygacsVersion = '0.2.1'
+pygacsVersion = '0.2.2'
 
 setup(
     name="pygacs",
