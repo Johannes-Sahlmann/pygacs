@@ -113,9 +113,9 @@ def authenticatedQuery(myUsername,myPsswd,queryString,outputFileName="out.vot", 
     while True:
         resp = subprocess.check_output(str_progress(jobid), shell=True)
         phase = resp.split('<uws:phase>')[1].split('</uws:phase>')[0]
-        print "Status: " + phase
+        print("Status: " + phase);
         if phase == 'ERROR':
-            print 'error encountered';
+            print('error encountered');
             break
         elif phase == 'COMPLETED':
             # retrieve result
@@ -219,9 +219,9 @@ class GacsTableProperties:
     
         """
 
-        print 'Available schemas:'
+        print('Available schemas:')
         for nam in self.schemaNames:
-            print nam;
+            print(nam);
 
                   
     def getTableNames(self,schemaName,verbose=0):
@@ -247,11 +247,11 @@ class GacsTableProperties:
             Ntables = len(self.d['vod:tableset']['schema'][schemaIndex]['table'])        
             tableNames = np.array([ self.d['vod:tableset']['schema'][schemaIndex]['table'][i]['name'] for i in range(Ntables)])
             if verbose:
-                print 'Available tables in schema %s:' % schemaName
+                print('Available tables in schema %s:' % schemaName);
                 for nam in tableNames:
-                    print nam
+                    print(nam);
         except KeyError:
-            print 'Schema %s does not contain any table' % schemaName
+            print('Schema %s does not contain any table' % schemaName);
             tableNames = np.array(['']);
                         
         return tableNames
