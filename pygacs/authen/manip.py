@@ -266,11 +266,3 @@ class GacsTableProperties:
             tableNames = np.array(['']);
                         
         return tableNames
-
-                
-        
-        
-        
-            
-
-        

@@ -1,15 +1,12 @@
 #!/usr/bin/env python
-#/usr/bin/env python3
 
 # for compatibility with python 2.7 and 3.x
 from __future__ import print_function
-
 
 import sys, os, argparse
 print('Python version is %s' % sys.version);
 import numpy as np
 from astropy.table import Table
-# import pygacs.authen.manip as pga        
 
 import pygacs.public.publicAccessTools as pgp 
 
