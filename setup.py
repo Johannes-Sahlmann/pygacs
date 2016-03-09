@@ -33,7 +33,7 @@ except ImportError:
 # m = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "pygacs", "__init__.py")).read()
 # pygaiaVersion = vre.findall(m)[0]
 
-pygacsVersion = '0.2.2'
+pygacsVersion = '0.2.3'
 
 setup(
     name="pygacs",
@@ -47,7 +47,7 @@ setup(
     packages = find_packages(),
     use_2to3 = True,
     # packages=['pygacs', 'pygacs.authen'],
-    scripts=['examples/pygacsExample.py'],  # this will be installed to a bin/ directory
+    scripts=['examples/pygacsExample.py', 'examples/pygacsExample_publicAccess'],  # this will be installed to a bin/ directory
     package_data={'': ['LICENSE', 'AUTHORS.rst', 'HISTORY.rst', 'INSTALL', 'MANIFEST.in'],'pygacs': ['examples/*']},
     include_package_data=True,
     install_requires=["numpy","astropy","xmltodict"],

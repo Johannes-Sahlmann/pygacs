@@ -7,10 +7,14 @@ pygacs provides python modules for the access and manipulation (e.g. crossmatch)
 tables in GACS. It employs the TAP command line access tools described
 in the 'Help' section of the GACS web pages (`<http://gaia.esac.esa.int/archive/>`_). 
 
-So far, only synchronous and authenticated access has been
-implemented. To fully use pygacs, in particular to upload a table for
+Both public and authenticated access have been
+implemented.
+
+Please see pygacsExample_publicAccess.py for a demo on how public tables can easily be queried using ADQL.
+
+To fully use pygacs, in particular to upload a table for
 crossmatch operations, you will need to be a registered user of GACS
-and call the example script with your access credentials.
+and call the example script pygacsExample.py with your access credentials.
 
 
 
@@ -40,7 +44,11 @@ Optional (for plotting in the example script):
 How to run the example script
 -----------
 
-Get the source files, e.g.: 
+You may use pip for installation:
+
+> pip install pygacs
+
+Or get the source files, e.g.: 
 
 > git clone https://github.com/johannes-sahlmann/pygacs
 
@@ -54,14 +62,13 @@ To run the example script, do:
 
 > cd examples/
 
-> ./pygacsExample.py --help
+For public access:
+> ./pygacsExample_publicAccess.py
 
+For authenticated access:
+> ./pygacsExample.py --help
 > ./pygacsExample.py yourGacsUserName yourGacsPassword
 
-
-You may also use pip for installation:
-
-> pip install pygacs
 
 
 

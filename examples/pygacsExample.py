@@ -1,6 +1,12 @@
 #!/usr/bin/env python
+#/usr/bin/env python3
 
-import sys,os, argparse
+# for compatibility with python 2.7 and 3.x
+from __future__ import print_function
+
+
+import sys, os, argparse
+print('Python version is %s' % sys.version);
 import numpy as np
 from astropy.table import Table
 import pygacs.authen.manip as pga        
@@ -60,28 +66,28 @@ def main(argv):
         userTableNames = tableProps.getTableNames(userSchemaName,verbose=1)
 
         if tableName in userTableNames:
-            print "*********************  Deleting Table"    
+            print("*********************  Deleting Table")    
             pga.authenticatedGacsCommand(myUsername,myPsswd, pga.str_deleteTable(tableName) )
 
         if xmatchTableName in userTableNames:
-            print "*********************  Deleting Table"    
+            print("*********************  Deleting Table")    
             pga.authenticatedGacsCommand(myUsername,myPsswd, pga.str_deleteTable(xmatchTableName) )
 
     # upload user table
-    print "*********************  Uploading Table"    
+    print("*********************  Uploading Table")    
     pga.authenticatedGacsCommand(myUsername,myPsswd, pga.str_uploadTable(tableFile,tableName) )
 
 
     # set RA and Dec flags in user-provided table to prepare for crossmatch
     # Has to be tuned to match the names of RA and Dec columns in input table T
-    print "*********************  Setting Table flags"    
+    print("*********************  Setting Table flags")    
     pga.authenticatedGacsCommand(myUsername,myPsswd, pga.str_setTableFlags( tableName, myUsername, T.colnames[1].lower(), T.colnames[2].lower() ))
 
     # command the crossmatch
 
     crossMatchRadius_arcsec = 1.5;
     queryString = "SELECT crossmatch_positional('user_%s','%s','public','%s','%3.2f','%s') FROM dual" % (myUsername,tableName,gacsTableForXmatch,crossMatchRadius_arcsec,xmatchTableName)
-    print "*********************  Table crossmatch"     
+    print("*********************  Table crossmatch")     
     pga.authenticatedQuery(myUsername,myPsswd,queryString)  
 
 
@@ -89,14 +95,14 @@ def main(argv):
     # a stands for the user-provided table, b stands for the GACS reference table, c stands for the crossmatch table
     queryString = 'SELECT * FROM user_%s.%s AS a, public.%s AS b, user_%s.%s AS c WHERE (c.%s_%s_oid = a.%s_oid AND c.%s_source_id = b.source_id)' % (myUsername,tableName,gacsTableForXmatch,myUsername,xmatchTableName,tableName,tableName,tableName,gacsTableForXmatch);
     outputFileName = '%s.vot' % os.path.join(wDir,xmatchTableName);
-    print "*********************  Retrieve crossmatch results"      
+    print("*********************  Retrieve crossmatch results")      
     pga.authenticatedQuery(myUsername,myPsswd,queryString,outputFileName,retrieve=True)
 
     # read crossmatched table
     T4 = Table.read( os.path.join(wDir,outputFileName) ,format='votable')
 
     # as an example, print the Hipparcos identifiers and the corresponding Gaia source_id for the stars in this example
-    print T4['hip','source_id']
+    print(T4['hip','source_id'])
 
 
 

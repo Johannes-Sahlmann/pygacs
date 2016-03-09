@@ -21,7 +21,12 @@ see https://geadev.esac.esa.int/gacs-dev/index.html
 
 """
 
-import os, subprocess, time
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+from __future__ import unicode_literals
+
+import os, subprocess, time, sys
 import xmltodict
 import numpy as np
 import pdb
@@ -29,8 +34,6 @@ import pdb
 __version__ = '0.2'
 
 gacsurl = 'http://gaia.esac.esa.int/'
-# gacsurl = 'https://geadev.esac.esa.int/'
-
 
 
 def authenticatedGacsCommand(myUsername,myPsswd,commandString):
@@ -102,20 +105,28 @@ def authenticatedQuery(myUsername,myPsswd,queryString,outputFileName="out.vot", 
     """
         
     str_login = "curl -k -c cookies.txt -X POST -d username=%s -d password=%s -L \"%stap-server/login\" " % (myUsername,myPsswd,gacsurl)                 
-    str_query = "curl -k -b cookies.txt -i -X POST --data \"PHASE=run&LANG=ADQL&REQUEST=doQuery&QUERY=" + queryString + "\"  \"%stap-server/tap/async\" " % (gacsurl)						
+    str_query = "curl -k -b cookies.txt -i -X POST --data \"PHASE=run&LANG=ADQL&REQUEST=doQuery&QUERY=" + queryString + "\"  \"%stap-server/tap/async\" " % (gacsurl)                       
     str_logout = "curl -k -b cookies.txt -X POST -d -L \"%stap-server/logout\" " % (gacsurl)   
     
     os.system(str_login)
     resp = subprocess.check_output(str_query, shell=True)    
-    jobid = resp.split('tap-server/tap/async/')[1].split('\r')[0]
+    if sys.version_info >= (3,): # tested on python 3.5
+        jobid = str(resp).split('tap-server/tap/async/')[1].split('\\r')[0]
+    else:    
+        jobid = resp.split('tap-server/tap/async/')[1].split('\r')[0]
+    
     
     # check for progress    
     while True:
         resp = subprocess.check_output(str_progress(jobid), shell=True)
-        phase = resp.split('<uws:phase>')[1].split('</uws:phase>')[0]
+        if sys.version_info >= (3,): # tested on python 3.5
+            phase = str(resp).split('<uws:phase>')[1].split('</uws:phase>')[0];
+        else:
+            phase = resp.split('<uws:phase>')[1].split('</uws:phase>')[0]
         print("Status: " + phase);
         if phase == 'ERROR':
             print('error encountered');
+            print(resp)
             break
         elif phase == 'COMPLETED':
             # retrieve result

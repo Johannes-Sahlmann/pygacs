@@ -13,7 +13,10 @@ located at http://gaia.esac.esa.int/archive/
 
 """
 
-
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+from __future__ import unicode_literals
 
 ############################################################    
 # Non authenticated access
@@ -99,7 +102,7 @@ def retrieveQueryResult(queryString,outputFileName):
 
     if phase == 'ERROR':
         print('ERROR');
-        print message
+        print(message);
         sys.exit(1)
     
     #-------------------------------------
@@ -108,16 +111,12 @@ def retrieveQueryResult(queryString,outputFileName):
     connection.request("GET",pathinfo+"/"+jobid+"/results/result")
     response = connection.getresponse()
     data = response.read()
-    outputFile = open(outputFileName, "w")
+    if sys.version_info >= (3,):
+        outputFile = open(outputFileName, 'wb')
+    else:
+        outputFile = open(outputFileName, 'w')
     outputFile.write(data)
     outputFile.close()
     connection.close()
     print("Data saved in: " + outputFileName)
-    sys.exit(0)
-
-
-
-
             
-
-        
