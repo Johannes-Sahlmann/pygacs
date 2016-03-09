@@ -3,8 +3,8 @@ pygacs
 
 **Python toolkit to manipulate Gaia catalogue tables hosted at ESA's Gaia Archive Core Systems (GACS)**
 
-pygacs provides python modules for the access and manipulation (e.g. crossmatch) of
-tables in GACS. It employs the TAP command line access tools described
+pygacs provides python modules for the access and manipulation of
+tables in GACS, e.g. basic query on a single table or crossmatch between two tables. It employs the TAP command line access tools described
 in the 'Help' section of the GACS web pages (`<http://gaia.esac.esa.int/archive/>`_). 
 
 Both public and authenticated access have been
@@ -27,7 +27,8 @@ All classes and methods/functions include basic documentation.
 Installation notes
 ------------------
 
-This package was developed in a python 2.7 environment.
+This package was developed in a python 2.7 environment, but was also
+successfully tested using python 3.5.
 
 The following python packages are required:
 
@@ -63,10 +64,13 @@ To run the example script, do:
 > cd examples/
 
 For public access:
+
 > ./pygacsExample_publicAccess.py
 
 For authenticated access:
+
 > ./pygacsExample.py --help
+
 > ./pygacsExample.py yourGacsUserName yourGacsPassword
 
 

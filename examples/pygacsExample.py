@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-#/usr/bin/env python3
 
 # for compatibility with python 2.7 and 3.x
 from __future__ import print_function
