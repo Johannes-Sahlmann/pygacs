@@ -47,7 +47,7 @@ setup(
     packages = find_packages(),
     use_2to3 = True,
     # packages=['pygacs', 'pygacs.authen'],
-    scripts=['examples/pygacsExample.py', 'examples/pygacsExample_publicAccess'],  # this will be installed to a bin/ directory
+    scripts=['examples/pygacsExample.py', 'examples/pygacsExample_publicAccess.py'],  # this will be installed to a bin/ directory
     package_data={'': ['LICENSE', 'AUTHORS.rst', 'HISTORY.rst', 'INSTALL', 'MANIFEST.in'],'pygacs': ['examples/*']},
     include_package_data=True,
     install_requires=["numpy","astropy","xmltodict"],
