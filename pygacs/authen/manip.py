@@ -15,8 +15,7 @@ References
 ----------
 
 Compiled on the basis of the 'Help' section of the GACS web pages,
-see https://geadev.esac.esa.int/gacs-dev/index.html
-(located at http://gaia.esac.esa.int/archive/ as of 1 December 2015)
+see http://archives.esac.esa.int/gaia/
 
 
 """
@@ -33,7 +32,8 @@ import pdb
 
 __version__ = '0.2'
 
-gacsurl = 'http://gaia.esac.esa.int/'
+# gacsurl = 'http://gaia.esac.esa.int/'
+gacsurl = 'http://gea.esac.esa.int/archive/'
 
 
 def authenticatedGacsCommand(myUsername,myPsswd,commandString):

@@ -5,7 +5,7 @@ pygacs
 
 pygacs provides python modules for the access and manipulation of
 tables in GACS, e.g. basic query on a single table or crossmatch between two tables. It employs the TAP command line access tools described
-in the 'Help' section of the GACS web pages (`<http://gaia.esac.esa.int/archive/>`_). 
+in the 'Help' section of the GACS web pages (`<http://archives.esac.esa.int/gaia/>`_). 
 
 Both public and authenticated access have been
 implemented.

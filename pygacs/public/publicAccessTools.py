@@ -8,7 +8,7 @@ References
 ----------
 
 Compiled on the basis of the 'Help' section of the GACS web pages,
-located at http://gaia.esac.esa.int/archive/ 
+located at http://archives.esac.esa.int/gaia/ 
 
 
 """
@@ -34,7 +34,7 @@ __version__ = '0.2'
 def retrieveQueryResult(queryString,outputFileName):
     #ASYNCHRONOUS REQUEST
     
-    host = "gaia.esac.esa.int"
+    host = "gea.esac.esa.int"
     pathinfo = "/tap-server/tap/async"
     port = 80
     
