@@ -32,8 +32,7 @@ import pdb
 
 __version__ = '0.2'
 
-# gacsurl = 'http://gaia.esac.esa.int/'
-gacsurl = 'http://gea.esac.esa.int/archive/'
+gacsurl = 'http://gea.esac.esa.int/'
 
 
 def authenticatedGacsCommand(myUsername,myPsswd,commandString):
