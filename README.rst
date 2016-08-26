@@ -47,7 +47,7 @@ How to run the example script
 
 You may use pip for installation:
 
-> pip install pygacs (**latest version 0.2.6 not yet available via pip**)
+> pip install pygacs
 
 Or get the source files, e.g.: 
 
