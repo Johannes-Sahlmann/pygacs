@@ -17,6 +17,26 @@ crossmatch operations, you will need to be a registered user of GACS
 and call the example script pygacsExample.py with your access credentials.
 
 
+Basic example usage
+-------------
+
+# import module
+import pygacs.public.publicAccessTools as pgp 
+
+# define ADQL query
+queryString = '''SELECT * FROM gaiadr1.tgas_source WHERE parallax >
+100; '''
+
+# define local file to store query result in a VO table
+outputFileName = path + 'ADQL_query_result.vot';
+
+# execute query
+pgp.retrieveQueryResult(queryString,outputFileName);
+
+# read result into astropy table
+T = Table.read(outputFileName,format='votable')
+
+
 
 Documentation
 -------------
