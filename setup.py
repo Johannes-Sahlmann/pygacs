@@ -19,7 +19,7 @@ except ImportError:
   from distutils.core import setup
   setup
 
-pygacsVersion = '0.2.6'
+pygacsVersion = '0.2.7'
 
 setup(
     name="pygacs",
