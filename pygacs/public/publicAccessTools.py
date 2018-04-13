@@ -21,10 +21,14 @@ from __future__ import unicode_literals
 ############################################################    
 # Non authenticated access
 ############################################################    
-    
-import httplib
-import urllib
+
 import time, sys
+
+if sys.version_info[0] == 3:
+    import http.client as httplib
+elif sys.version_info[0] == 2:
+    import httplib
+import urllib
 from xml.dom.minidom import parseString
 # import pdb
 
@@ -34,20 +38,32 @@ __version__ = '0.2'
 def retrieveQueryResult(queryString,outputFileName):
     #ASYNCHRONOUS REQUEST
     
-    host = "gea.esac.esa.int"
-    pathinfo = "/tap-server/tap/async"
+    # host = "gea.esac.esa.int"
+    # pathinfo = "/tap-server/tap/async"
+    host = "dc.zah.uni-heidelberg.de"
+    pathinfo = "/__system__/tap/run/tap/async"
     port = 80
     
     #-------------------------------------
     #Create job
 
-    params = urllib.urlencode({\
-        "REQUEST": "doQuery", \
-        "LANG":    "ADQL", \
-        "FORMAT":  "votable", \
-        "PHASE":   "RUN", \
-        "QUERY":   queryString
-        })
+    if sys.version_info[0] == 3:
+        params = urllib.parse.urlencode({\
+            "REQUEST": "doQuery", \
+            "LANG":    "ADQL", \
+            "FORMAT":  "votable", \
+            "PHASE":   "RUN", \
+            "QUERY":   queryString
+            })
+
+    elif sys.version_info[0] == 2:
+        params = urllib.urlencode({\
+            "REQUEST": "doQuery", \
+            "LANG":    "ADQL", \
+            "FORMAT":  "votable", \
+            "PHASE":   "RUN", \
+            "QUERY":   queryString
+            })
     
     headers = {\
         "Content-type": "application/x-www-form-urlencoded", \
@@ -55,7 +71,7 @@ def retrieveQueryResult(queryString,outputFileName):
         }
 
     connection = httplib.HTTPConnection(host, port)
-    connection.request("POST",pathinfo,params,headers)
+    connection.request("POST", pathinfo, params, headers)
 
     #Status
     response = connection.getresponse()
